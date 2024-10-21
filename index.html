@@ -678,6 +678,27 @@
       </tr>
     </table>
   </div>
-</body>
+<!--   SCRIPT -->
+  <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            alert("Right-click is disabled.");
+        }, false);
 
+        // Disable F12, Ctrl+Shift+I, Ctrl+Shift+C, Ctrl+Shift+J, Ctrl+U
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12') {
+                e.preventDefault();
+                alert("F12 is disabled.");
+            }
+
+            // Ctrl+Shift+I or Ctrl+Shift+C or Ctrl+Shift+J
+            if ((e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                alert("Inspecting elements is disabled.");
+            }
+        }, false);
+    </script>
+</body>
 </html>
